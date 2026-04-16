@@ -20,20 +20,21 @@ spec:
         ports:
         - containerPort: 5000
         env:
+        - name: DB_HOST
+          value: "postgresql"
         - name: DB_USER
           value: "admin"
         - name: DB_PASS
           value: "password"
         - name: DB
           value: "reviews"
-        - name: DB_HOST
-          value: "postgresql"
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: backend
 spec:
+  type: ClusterIP
   selector:
     app: backend
   ports:
