@@ -17,7 +17,8 @@ spec:
       - name: postgresql
         image: postgres:13
         ports:
-        - port: 5432
+        - containerPort: 5432
+          port: 5432
         envFrom:
           - configMapRef:
               name: bdd-config
